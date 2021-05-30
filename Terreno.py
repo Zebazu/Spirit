@@ -3,6 +3,7 @@ class Terreno:
     def __init__(self,tipo,obstaculo):
         self.tipo = tipo
         self.obstaculo = obstaculo
+        self.objetivo = False
     
     def getTipoTerreno(self):
         return self.tipo
@@ -32,4 +33,8 @@ class Terreno:
             elif self.obstaculo[i] == 1 and i == 3:
                 detalle+= "Obstaculo Costado Izquierdo"
                 hayObstaculos = True
-        return detalle if hayObstaculos else "No hay Obstaculos"    
+        return detalle if hayObstaculos else "No hay Obstaculos" 
+
+    def asignarTerrenoObjetivo(self):
+        self.objetivo = True
+

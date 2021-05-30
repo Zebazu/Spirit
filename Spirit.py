@@ -1,15 +1,13 @@
 class Spirit:
-    orientacion="este"
-    coordenadaM=1
-    coordenadaN=1
+
     def __init__(self,orientacion,coordenadaM,coordenadaN):
         self.orientacion=orientacion
-        self.coordenadaM=coordenadaM
-        self.coordenadaN=coordenadaN
+        self.coordenadaI=coordenadaM
+        self.coordenadaJ=coordenadaN
 
-    def nuevaCoordenada(self,x,y):
-        self.coordenadaM=x
-        self.coordenadaN=y
+    def nuevaCoordenada(self,i,j):
+        self.coordenadaI=i
+        self.coordenadaJ=j
 
     def nuevaOrientacion(self,orientacion):
         self.orientacion=orientacion
@@ -32,3 +30,4 @@ class Spirit:
             self.orientacion="norte"
         if self.orientacion=="norte":
             self.orientacion="este"
+
