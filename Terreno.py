@@ -19,19 +19,19 @@ class Terreno:
         hayObstaculos = False
         for i in range(4):
             if self.obstaculo[i] == 1 and i == 0:
-                detalle+= "Obstaculo Superior"
-                detalle+= "; "
+                detalle+= "Superior"
+                detalle+= ";"
                 hayObstaculos = True
             elif self.obstaculo[i] == 1 and i == 1:
-                detalle+= "Obstaculo Costado Derecho"
-                detalle+= "; "
+                detalle+= "Derecho"
+                detalle+= ";"
                 hayObstaculos = True
             elif self.obstaculo[i] == 1 and i == 2:
-                detalle+= "Obstaculo Inferior"
-                detalle+= "; "
+                detalle+= "Inferior"
+                detalle+= ";"
                 hayObstaculos = True
             elif self.obstaculo[i] == 1 and i == 3:
-                detalle+= "Obstaculo Costado Izquierdo"
+                detalle+= "Izquierdo"
                 hayObstaculos = True
         return detalle if hayObstaculos else "No hay Obstaculos" 
 
