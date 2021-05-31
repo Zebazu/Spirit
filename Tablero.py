@@ -107,11 +107,12 @@ m=0
 n=0
 contadorOrigen=0
 
-def find_next(spirit,coordinates, maze, visitados):
+def find_next(spirit,coordinates, maze, visitados, visited):
     global tiempo
     next_coordinates = []
     lista=maze.getTerreno(coordinates[0], coordinates[1]).getDetalleObstaculo().split(";")
     print(lista)
+    visited.append((spirit.orientacion,(coordinates[0],coordinates[1])))
     if(maze.getTerreno(coordinates[0],coordinates[1]).getDetalleTerreno()=="Terreno Llano"):
         tiempo += 2
     else:
@@ -119,21 +120,31 @@ def find_next(spirit,coordinates, maze, visitados):
     if (spirit.orientacion == "este"):
         if coordinates[1] + 1 < n and not ("Derecho" in lista):
             lista2 = maze.getTerreno(coordinates[0], coordinates[1]+1).getDetalleObstaculo().split(";")
-            if(not "Izquierdo" in lista2):
+            if(not "Izquierdo" in lista2 and not (("este",(coordinates[0], coordinates[1]+1)) in visited)):
                 print(lista2)
                 next_coordinates.append((coordinates[0], coordinates[1] + 1))
                 return spirit, next_coordinates
-        elif coordinates[0] + 1 < m and not ("Inferior" in lista):
+        if coordinates[0] + 1 < m and not ("Inferior" in lista):
             lista2 = maze.getTerreno(coordinates[0]+1, coordinates[1]).getDetalleObstaculo().split(";")
-            if (not "Superior" in lista2):
+            if (not "Superior" in lista2 and not (("sur",(coordinates[0]+1, coordinates[1])) in visited)):
                 spirit.nuevaOrientacion("sur")
                 visitados.append("giro")
                 tiempo += 4
                 next_coordinates.append((coordinates[0] + 1, coordinates[1]))
                 return spirit, next_coordinates
-        elif coordinates[1] - 1 >= 0 and not ("Izquierdo" in lista):
+        if coordinates[0] - 1 >= 0 and not ("Superior" in lista):
+            lista2 = maze.getTerreno(coordinates[0]-1, coordinates[1]).getDetalleObstaculo().split(";")
+            if (not "Inferior" in lista2 and not (("norte",(coordinates[0]-1, coordinates[1])) in visited)):
+                spirit.nuevaOrientacion("norte")
+                visitados.append("giro")
+
+
+                tiempo+=4
+                next_coordinates.append((coordinates[0] - 1, coordinates[1]))
+                return spirit, next_coordinates
+        if coordinates[1] - 1 >= 0 and not ("Izquierdo" in lista):
             lista2 = maze.getTerreno(coordinates[0], coordinates[1] - 1).getDetalleObstaculo().split(";")
-            if (not "Derecho" in lista2):
+            if (not "Derecho" in lista2 and not (("oeste",(coordinates[0], coordinates[1]-1)) in visited)):
                 spirit.nuevaOrientacion("oeste")
                 visitados.append("giro")
                 visitados.append("giro")
@@ -141,36 +152,37 @@ def find_next(spirit,coordinates, maze, visitados):
                 tiempo+=8
                 next_coordinates.append((coordinates[0], coordinates[1] - 1))
                 return spirit, next_coordinates
-        elif coordinates[0] - 1 >= 0 and not ("Superior" in lista):
-            lista2 = maze.getTerreno(coordinates[0]-1, coordinates[1]).getDetalleObstaculo().split(";")
-            if (not "Inferior" in lista2):
-                spirit.nuevaOrientacion("norte")
-                visitados.append("giro")
-                visitados.append("giro")
-                visitados.append("giro")
-                tiempo+=12
-                next_coordinates.append((coordinates[0] - 1, coordinates[1]))
-                return spirit, next_coordinates
+
 
     if (spirit.orientacion == "sur"):
+        if coordinates[1] + 1 < n and not ("Derecho" in lista):
+            lista2 = maze.getTerreno(coordinates[0], coordinates[1] + 1).getDetalleObstaculo().split(";")
+            if (not "Izquierdo" in lista2 and not (("este",(coordinates[0], coordinates[1]+1)) in visited)):
+                spirit.nuevaOrientacion("este")
+
+                visitados.append("giro")
+
+                tiempo+=4
+                next_coordinates.append((coordinates[0], coordinates[1] + 1))
+                return spirit, next_coordinates
         if coordinates[0] + 1 < m and not ("Inferior" in lista):
             lista2 = maze.getTerreno(coordinates[0]+1, coordinates[1]).getDetalleObstaculo().split(";")
-            if (not "Superior" in lista2):
+            if (not "Superior" in lista2 and not (("sur",(coordinates[0]+1, coordinates[1])) in visited)):
 
                 next_coordinates.append((coordinates[0] + 1, coordinates[1]))
                 return spirit, next_coordinates
-        elif coordinates[1] - 1 >= 0 and not ("Izquierdo" in lista):
+        if coordinates[1] - 1 >= 0 and not ("Izquierdo" in lista):
             lista2 = maze.getTerreno(coordinates[0], coordinates[1]-1).getDetalleObstaculo().split(";")
-            if (not "Derecho" in lista2):
+            if (not "Derecho" in lista2 and not (("oeste",(coordinates[0], coordinates[1]-1)) in visited)):
                 spirit.nuevaOrientacion("oeste")
                 visitados.append("giro")
 
                 tiempo+=4
                 next_coordinates.append((coordinates[0], coordinates[1] - 1))
                 return spirit, next_coordinates
-        elif coordinates[0] - 1 >= 0 and not ("Superior" in lista):
+        if coordinates[0] - 1 >= 0 and not ("Superior" in lista):
             lista2 = maze.getTerreno(coordinates[0]-1, coordinates[1] ).getDetalleObstaculo().split(";")
-            if (not "Inferior" in lista2):
+            if (not "Inferior" in lista2 and not (("norte",(coordinates[0]-1, coordinates[1])) in visited)):
                 spirit.nuevaOrientacion("norte")
                 visitados.append("giro")
                 visitados.append("giro")
@@ -178,41 +190,40 @@ def find_next(spirit,coordinates, maze, visitados):
                 tiempo+=8
                 next_coordinates.append((coordinates[0] - 1, coordinates[1]))
                 return spirit, next_coordinates
-        elif coordinates[1] + 1 < n and not ("Derecho" in lista):
-            lista2 = maze.getTerreno(coordinates[0], coordinates[1] + 1).getDetalleObstaculo().split(";")
-            if (not "Izquierdo" in lista2):
-                spirit.nuevaOrientacion("este")
 
-                visitados.append("giro")
-                visitados.append("giro")
-                visitados.append("giro")
-
-                tiempo+=12
-                next_coordinates.append((coordinates[0], coordinates[1] + 1))
-                return spirit, next_coordinates
 
 
 
     if (spirit.orientacion == "oeste"):
+        if coordinates[0] + 1 < m and not ("Inferior" in lista):
+            lista2 = maze.getTerreno(coordinates[0]+1, coordinates[1]).getDetalleObstaculo().split(";")
+            if (not "Superior" in lista2 and not (("sur",(coordinates[0]+1, coordinates[1])) in visited)):
+                spirit.nuevaOrientacion("sur")
+
+                visitados.append("giro")
+
+                tiempo += 4
+                next_coordinates.append((coordinates[0] + 1, coordinates[1]))
+                return spirit, next_coordinates
         if coordinates[1] - 1 >= 0 and not ("Izquierdo" in lista):
             lista2 = maze.getTerreno(coordinates[0], coordinates[1] - 1).getDetalleObstaculo().split(";")
-            if (not "Derecho" in lista2):
+            if (not "Derecho" in lista2 and not (("oeste",(coordinates[0], coordinates[1]-1)) in visited)):
 
 
                 next_coordinates.append((coordinates[0], coordinates[1] - 1))
                 return spirit, next_coordinates
-        elif coordinates[0] - 1 >= 0 and not ("Superior" in lista):
+        if coordinates[0] - 1 >= 0 and not ("Superior" in lista):
             lista2 = maze.getTerreno(coordinates[0]-1, coordinates[1]).getDetalleObstaculo().split(";")
-            if (not "Inferior" in lista2):
+            if (not "Inferior" in lista2 and not (("norte",(coordinates[0]-1, coordinates[1])) in visited)):
                 spirit.nuevaOrientacion("norte")
                 visitados.append("giro")
 
                 tiempo += 4
                 next_coordinates.append((coordinates[0] - 1, coordinates[1]))
                 return spirit, next_coordinates
-        elif coordinates[1] + 1 < n and not ("Derecho" in lista):
+        if coordinates[1] + 1 < n and not ("Derecho" in lista):
             lista2 = maze.getTerreno(coordinates[0], coordinates[1] + 1).getDetalleObstaculo().split(";")
-            if (not "Izquierdo" in lista2):
+            if (not "Izquierdo" in lista2 and not (("este",(coordinates[0], coordinates[1]+1)) in visited)):
                 spirit.nuevaOrientacion("este")
 
                 visitados.append("giro")
@@ -222,29 +233,14 @@ def find_next(spirit,coordinates, maze, visitados):
                 tiempo += 8
                 next_coordinates.append((coordinates[0], coordinates[1] + 1))
                 return spirit, next_coordinates
-        elif coordinates[0] + 1 < m and not ("Inferior" in lista):
-            lista2 = maze.getTerreno(coordinates[0]+1, coordinates[1]).getDetalleObstaculo().split(";")
-            if (not "Superior" in lista2):
-                spirit.nuevaOrientacion("sur")
 
-                visitados.append("giro")
-                visitados.append("giro")
-                visitados.append("giro")
-                tiempo += 12
-                next_coordinates.append((coordinates[0] + 1, coordinates[1]))
-                return spirit, next_coordinates
 
 
 
     if (spirit.orientacion == "norte"):
-        if coordinates[0] - 1 >= 0 and not ("Superior" in lista):
-            lista2 = maze.getTerreno(coordinates[0], coordinates[1] - 1).getDetalleObstaculo().split(";")
-            if (not "Inferior" in lista2):
-                next_coordinates.append((coordinates[0] - 1, coordinates[1]))
-                return spirit, next_coordinates
-        elif coordinates[1] + 1 < n and not ("Derecho" in lista):
+        if coordinates[1] + 1 < n and not ("Derecho" in lista):
             lista2 = maze.getTerreno(coordinates[0], coordinates[1] + 1).getDetalleObstaculo().split(";")
-            if (not "Izquierdo" in lista2):
+            if (not "Izquierdo" in lista2 and not (("este",(coordinates[0], coordinates[1]+1)) in visited)):
                 spirit.nuevaOrientacion("este")
 
                 visitados.append("giro")
@@ -252,41 +248,46 @@ def find_next(spirit,coordinates, maze, visitados):
                 tiempo += 4
                 next_coordinates.append((coordinates[0], coordinates[1] + 1))
                 return spirit, next_coordinates
-        elif coordinates[0] + 1 < m and not ("Inferior" in lista):
-            lista2 = maze.getTerreno(coordinates[0]+1, coordinates[1]).getDetalleObstaculo().split(";")
-            if (not "Superior" in lista2):
-                spirit.nuevaOrientacion("sur")
+        if coordinates[0] - 1 >= 0 and not ("Superior" in lista):
+            lista2 = maze.getTerreno(coordinates[0]-1, coordinates[1]).getDetalleObstaculo().split(";")
+            if (not "Inferior" in lista2 and not (("norte",(coordinates[0]-1, coordinates[1])) in visited)):
+                next_coordinates.append((coordinates[0] - 1, coordinates[1]))
+                return spirit, next_coordinates
+        if coordinates[1] - 1 >= 0 and not ("Izquierdo" in lista):
+            lista2 = maze.getTerreno(coordinates[0], coordinates[1] - 1).getDetalleObstaculo().split(";")
+            if (not "Derecho" in lista2 and not (("oeste",(coordinates[0], coordinates[1]-1)) in visited)):
+                spirit.nuevaOrientacion("oeste")
 
                 visitados.append("giro")
+
+                tiempo += 4
+                next_coordinates.append((coordinates[0], coordinates[1] - 1))
+                return spirit, next_coordinates
+        if coordinates[0] + 1 < m and not ("Inferior" in lista):
+            lista2 = maze.getTerreno(coordinates[0]+1, coordinates[1]).getDetalleObstaculo().split(";")
+            if (not "Superior" in lista2 and not (("sur",(coordinates[0]+1, coordinates[1])) in visited)):
+                spirit.nuevaOrientacion("sur")
+
                 visitados.append("giro")
 
                 tiempo += 8
                 next_coordinates.append((coordinates[0] + 1, coordinates[1]))
                 return spirit, next_coordinates
-        elif coordinates[1] - 1 >= 0 and not ("Izquierdo" in lista):
-            lista2 = maze.getTerreno(coordinates[0], coordinates[1] - 1).getDetalleObstaculo().split(";")
-            if (not "Derecho" in lista2):
-                spirit.nuevaOrientacion("oeste")
-
-                visitados.append("giro")
-                visitados.append("giro")
-                visitados.append("giro")
-                tiempo += 12
-                next_coordinates.append((coordinates[0], coordinates[1] - 1))
-                return spirit, next_coordinates
 
 
 
 
 
 
-def dfs(maze, stack, spirit, visitados):
+
+def dfs(maze, stack, spirit, visitados, visited):
+
     start = spirit
     stack.append((start.coordenadaI,start.coordenadaJ))
     global contadorOrigen
     while stack:
-        if(contadorOrigen==10):
-            raise TypeError
+        #if(contadorOrigen==10):
+         #   raise TypeError
 
         print("\n")
         n = stack.pop()
@@ -301,7 +302,8 @@ def dfs(maze, stack, spirit, visitados):
             print("Listo!")
             return
         print(f"No.")
-        start,next_steps = find_next(start,n, maze, visitados)
+        start,next_steps = find_next(start,n, maze, visitados, visited)
+
         print(f"Siguiente: {next_steps}")
         stack.append(next_steps[0])
 
@@ -310,25 +312,25 @@ def main():
     spirit=Spirit("este",0,0)
     global m
     global n
-    m=3
-    n=3
+    m=6
+    n=8
     laberinto=Matriz(m,n)
-    laberinto.generarArea()
-    visitados=[]
+    laberinto.generarAreaDefinidaTXT()
+    camino=[]
     stack = []
-
+    visitado=[]
     Tablero_game = Tablero(spirit,laberinto)
     Tablero_game.exportarTableroExcel()
     print("\n")
     
     try:
-        dfs(laberinto, stack, spirit, visitados)
+        dfs(laberinto, stack, spirit, camino, visitado)
         print(f"Al Spirit le tomó un total de {tiempo}s encontrar el objetivo")
     except TypeError:
         print(f"Al Spirit le tomó un total de {tiempo}s darse cuenta que no hay solución")
 
 
 
-    print(visitados)
+    print(camino)
 if __name__ == "__main__":
     main()
