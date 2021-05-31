@@ -46,8 +46,7 @@ class Matriz:
 
                     self.matrix[fila][n] = Terreno(tipoTerreno ,obstaculosTerreno)
                     self.matrix[fila][n].asignarTerrenoObjetivo()
-                    print("El objetivo esta en "+str(fila)+" "+str(n))
-                    print("Posicion  ["+str(fila)+","+str(n))
+                    #print("El objetivo esta en "+str(fila)+" "+str(n))
                 
                 else:
                     #Extraemos el tipo de terreno
@@ -56,7 +55,7 @@ class Matriz:
                     obstaculosTerreno = list(map(int, celda[1].split(",")))
 
                     self.matrix[fila][n] = Terreno(tipoTerreno ,obstaculosTerreno)
-                    print("Posicion  ["+str(fila)+","+str(n))
+                    #print("Posicion  ["+str(fila)+","+str(n))
                 
                 #coordenada fila y n es columna
             fila+=1
