@@ -259,7 +259,7 @@ def main():
     global n
     m=3
     n=3
-    laberinto=Matriz(3,3)
+    laberinto=Matriz(m,n)
     laberinto.generarArea()
     visitados=[]
     stack = []
