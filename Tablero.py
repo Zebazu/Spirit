@@ -138,15 +138,15 @@ def dfs(maze, stack, spirit, visitados):
             contadorOrigen += 1
         visitados.append(n)
         print(start.orientacion)
-        print(f"Popping {n}")
-        print(f"Is {n} my goal?")
+        print(f"Buscando en {n}")
+        print(f"Es {n} mi objetivo?")
         print(n)
         if maze.getTerreno(n[0],n[1]).objetivo:
-            print("DONE!")
+            print("Listo!")
             return
         print(f"No.")
         start,next_steps = find_next(start,n, maze, visitados)
-        print(f"Next Steps: {next_steps}")
+        print(f"Siguiente: {next_steps}")
         stack.append(next_steps[0])
 
 
