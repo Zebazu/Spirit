@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e8b8fa38-479e-4559-8928-8800014c6c1d" name="Default Changelist" comment="Fixed orientacion">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Spirit" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Matriz.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tablero.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Sebastian Arce &lt;zebazu80@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1sdl4ZIbgwbOqsu9wftrBnlxF2a" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager" selected="Python.Tablero (1)">
+    <configuration name="Spirit" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Taller" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Spirit.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Tablero (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Taller" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Spirit" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Spirit/Tablero.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Tablero" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Taller" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tablero.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Taller" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Tablero (1)" />
+        <item itemvalue="Python.Tablero" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.Spirit" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e8b8fa38-479e-4559-8928-8800014c6c1d" name="Default Changelist" comment="" />
+      <created>1621210156291</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1621210156291</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Fixed orientacion">
+      <created>1622493921585</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1622493921585</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="git@github.com:Zebazu/Spirit.git" />
+    <MESSAGE value="Fixed orientacion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed orientacion" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="218" y="69" key="DiffContextDialog" timestamp="1622493917755">
+      <screen x="78" y="0" width="1458" height="864" />
+    </state>
+    <state x="218" y="69" key="DiffContextDialog/78.0.1458.864@78.0.1458.864" timestamp="1622493917755" />
+    <state x="588" y="187" key="FileChooserDialogImpl" timestamp="1621982825786">
+      <screen x="78" y="0" width="1458" height="864" />
+    </state>
+    <state x="588" y="187" key="FileChooserDialogImpl/78.0.1458.864@78.0.1458.864" timestamp="1621982825786" />
+    <state width="1437" height="224" key="GridCell.Tab.0.bottom" timestamp="1622493677723">
+      <screen x="78" y="0" width="1458" height="864" />
+    </state>
+    <state width="1437" height="224" key="GridCell.Tab.0.bottom/78.0.1458.864@78.0.1458.864" timestamp="1622493677723" />
+    <state width="1437" height="224" key="GridCell.Tab.0.center" timestamp="1622493677722">
+      <screen x="78" y="0" width="1458" height="864" />
+    </state>
+    <state width="1437" height="224" key="GridCell.Tab.0.center/78.0.1458.864@78.0.1458.864" timestamp="1622493677722" />
+    <state width="1437" height="224" key="GridCell.Tab.0.left" timestamp="1622493677722">
+      <screen x="78" y="0" width="1458" height="864" />
+    </state>
+    <state width="1437" height="224" key="GridCell.Tab.0.left/78.0.1458.864@78.0.1458.864" timestamp="1622493677722" />
+    <state width="1437" height="224" key="GridCell.Tab.0.right" timestamp="1622493677722">
+      <screen x="78" y="0" width="1458" height="864" />
+    </state>
+    <state width="1437" height="224" key="GridCell.Tab.0.right/78.0.1458.864@78.0.1458.864" timestamp="1622493677722" />
+    <state x="400" y="165" key="Vcs.Push.Dialog.v2" timestamp="1622493645587">
+      <screen x="78" y="0" width="1458" height="864" />
+    </state>
+    <state x="400" y="165" key="Vcs.Push.Dialog.v2/78.0.1458.864@78.0.1458.864" timestamp="1622493645587" />
+    <state x="470" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1622455439136">
+      <screen x="78" y="0" width="1458" height="864" />
+    </state>
+    <state x="470" y="181" width="672" height="678" key="search.everywhere.popup/78.0.1458.864@78.0.1458.864" timestamp="1622455439136" />
+  </component>
+</project>
