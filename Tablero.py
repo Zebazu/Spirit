@@ -117,114 +117,138 @@ def find_next(spirit,coordinates, maze, visitados):
     else:
         tiempo +=0.833
     if (spirit.orientacion == "este"):
-        if coordinates[0] + 1 < m and not ("Derecho" in lista):
+        if coordinates[1] + 1 < n and not ("Derecho" in lista):
 
-            next_coordinates.append((coordinates[0] + 1, coordinates[1]))
-            return spirit, next_coordinates
-        elif coordinates[1] + 1 < n and not ("Inferior" in lista):
-            spirit.nuevaOrientacion("sur")
-            visitados.append("giro")
-            tiempo+=4
             next_coordinates.append((coordinates[0], coordinates[1] + 1))
             return spirit, next_coordinates
-        elif coordinates[0] - 1 >= 0 and not ("Izquierdo" in lista):
+        elif coordinates[0] + 1 < m and not ("Inferior" in lista):
+            spirit.nuevaOrientacion("sur")
+            visitados.append("giro")
+            tiempo += 4
+            next_coordinates.append((coordinates[0] + 1, coordinates[1]))
+            return spirit, next_coordinates
+        elif coordinates[1] - 1 >= 0 and not ("Izquierdo" in lista):
             spirit.nuevaOrientacion("oeste")
             visitados.append("giro")
             visitados.append("giro")
+
             tiempo+=8
-            next_coordinates.append((coordinates[0] - 1, coordinates[1]))
+            next_coordinates.append((coordinates[0], coordinates[1] - 1))
             return spirit, next_coordinates
-        elif coordinates[1] - 1 >= 0 and not ("Superior" in lista):
+        elif coordinates[0] - 1 >= 0 and not ("Superior" in lista):
             spirit.nuevaOrientacion("norte")
             visitados.append("giro")
             visitados.append("giro")
             visitados.append("giro")
             tiempo+=12
-            next_coordinates.append((coordinates[0], coordinates[1] - 1))
+            next_coordinates.append((coordinates[0] - 1, coordinates[1]))
             return spirit, next_coordinates
+
     if (spirit.orientacion == "sur"):
-        if coordinates[1] + 1 < n and not ("Inferior" in lista):
-            next_coordinates.append((coordinates[0], coordinates[1] + 1))
+        if coordinates[0] + 1 < m and not ("Inferior" in lista):
 
+
+            next_coordinates.append((coordinates[0] + 1, coordinates[1]))
             return spirit, next_coordinates
-        elif coordinates[0] - 1 >= 0 and not ("Izquierdo" in lista):
-            tiempo+=4
+        elif coordinates[1] - 1 >= 0 and not ("Izquierdo" in lista):
             spirit.nuevaOrientacion("oeste")
             visitados.append("giro")
-            next_coordinates.append((coordinates[0] - 1, coordinates[1]))
+
+            tiempo+=4
+            next_coordinates.append((coordinates[0], coordinates[1] - 1))
             return spirit, next_coordinates
-        elif coordinates[1] - 1 >= 0 and not ("Superior" in lista):
-            tiempo += 8
+        elif coordinates[0] - 1 >= 0 and not ("Superior" in lista):
             spirit.nuevaOrientacion("norte")
             visitados.append("giro")
             visitados.append("giro")
-            next_coordinates.append((coordinates[0], coordinates[1] - 1))
-            return spirit,next_coordinates
 
-        elif coordinates[0] + 1 < m and not ("Derecho" in lista):
-            tiempo+=12
-            spirit.nuevaOrientacion("este")
-            visitados.append("giro")
-            visitados.append("giro")
-            visitados.append("giro")
-            next_coordinates.append((coordinates[0] + 1, coordinates[1]))
+            tiempo+=8
+            next_coordinates.append((coordinates[0] - 1, coordinates[1]))
             return spirit, next_coordinates
+        elif coordinates[1] + 1 < n and not ("Derecho" in lista):
+            spirit.nuevaOrientacion("este")
+
+            visitados.append("giro")
+            visitados.append("giro")
+            visitados.append("giro")
+
+            tiempo+=12
+            next_coordinates.append((coordinates[0], coordinates[1] + 1))
+            return spirit, next_coordinates
+
+
+
     if (spirit.orientacion == "oeste"):
-        if coordinates[0] - 1 >= 0 and not ("Izquierdo" in lista):
+        if coordinates[1] - 1 >= 0 and not ("Izquierdo" in lista):
 
-            next_coordinates.append((coordinates[0] - 1, coordinates[1]))
+
+
+            next_coordinates.append((coordinates[0], coordinates[1] - 1))
             return spirit, next_coordinates
-        elif coordinates[1] - 1 >= 0 and not ("Superior" in lista):
-            tiempo+=4
+        elif coordinates[0] - 1 >= 0 and not ("Superior" in lista):
             spirit.nuevaOrientacion("norte")
             visitados.append("giro")
-            next_coordinates.append((coordinates[0], coordinates[1] - 1))
+
+            tiempo += 4
+            next_coordinates.append((coordinates[0] - 1, coordinates[1]))
             return spirit, next_coordinates
-        elif coordinates[0] + 1 < m and not ("Derecho" in lista):
-            tiempo+=8
+        elif coordinates[1] + 1 < n and not ("Derecho" in lista):
             spirit.nuevaOrientacion("este")
+
             visitados.append("giro")
             visitados.append("giro")
 
-            next_coordinates.append((coordinates[0] + 1, coordinates[1]))
-            return spirit, next_coordinates
-        elif coordinates[1] + 1 < n and not ("Inferior" in lista):
-            tiempo+=12
-            spirit.nuevaOrientacion("sur")
-            visitados.append("giro")
-            visitados.append("giro")
-            visitados.append("giro")
 
+            tiempo += 8
             next_coordinates.append((coordinates[0], coordinates[1] + 1))
             return spirit, next_coordinates
+        elif coordinates[0] + 1 < m and not ("Inferior" in lista):
+            spirit.nuevaOrientacion("sur")
+
+            visitados.append("giro")
+            visitados.append("giro")
+            visitados.append("giro")
+            tiempo += 12
+            next_coordinates.append((coordinates[0] + 1, coordinates[1]))
+            return spirit, next_coordinates
+
+
+
     if (spirit.orientacion == "norte"):
-        if coordinates[1] - 1 >= 0 and not ("Superior" in lista):
-            next_coordinates.append((coordinates[0], coordinates[1] - 1))
-            return spirit, next_coordinates
-        elif coordinates[0] + 1 < m and not ("Derecho" in lista):
-            tiempo+=4
-            spirit.nuevaOrientacion("este")
-            visitados.append("giro")
-
-            next_coordinates.append((coordinates[0] + 1, coordinates[1]))
-            return spirit, next_coordinates
-        elif coordinates[1] + 1 < n and not ("Inferior" in lista):
-            tiempo+=8
-            spirit.nuevaOrientacion("sur")
-            visitados.append("giro")
-            visitados.append("giro")
-
-            next_coordinates.append((coordinates[0], coordinates[1] + 1))
-            return spirit, next_coordinates
-        elif coordinates[0] - 1 >= 0 and not ("Izquierdo" in lista):
-            tiempo+=12
-            spirit.nuevaOrientacion("oeste")
-            visitados.append("giro")
-            visitados.append("giro")
-            visitados.append("giro")
+        if coordinates[0] - 1 >= 0 and not ("Superior" in lista):
 
             next_coordinates.append((coordinates[0] - 1, coordinates[1]))
             return spirit, next_coordinates
+        elif coordinates[1] + 1 < n and not ("Derecho" in lista):
+            spirit.nuevaOrientacion("este")
+
+            visitados.append("giro")
+
+            tiempo += 4
+            next_coordinates.append((coordinates[0], coordinates[1] + 1))
+            return spirit, next_coordinates
+        elif coordinates[0] + 1 < m and not ("Inferior" in lista):
+            spirit.nuevaOrientacion("sur")
+
+            visitados.append("giro")
+            visitados.append("giro")
+
+            tiempo += 8
+            next_coordinates.append((coordinates[0] + 1, coordinates[1]))
+            return spirit, next_coordinates
+        elif coordinates[1] - 1 >= 0 and not ("Izquierdo" in lista):
+            spirit.nuevaOrientacion("oeste")
+
+            visitados.append("giro")
+            visitados.append("giro")
+            visitados.append("giro")
+            tiempo += 12
+            next_coordinates.append((coordinates[0], coordinates[1] - 1))
+            return spirit, next_coordinates
+
+
+
+
 
 
 def dfs(maze, stack, spirit, visitados):
