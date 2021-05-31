@@ -38,3 +38,5 @@ class Terreno:
     def asignarTerrenoObjetivo(self):
         self.objetivo = True
 
+    def esObjetivo(self):
+        return self.objetivo

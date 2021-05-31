@@ -31,3 +31,18 @@ class Spirit:
         if self.orientacion=="norte":
             self.orientacion="este"
 
+    def getCoordenadaI(self):
+        return self.coordenadaI
+    
+    def getCoordenadaJ(self):
+        return self.coordenadaJ
+    
+    def flechaOrientacion(self):
+        if self.orientacion=="este":
+            return "→"
+        if self.orientacion=="norte":
+            return "↑"
+        if self.orientacion=="oeste":
+            return "←"
+        if self.orientacion=="sur":
+            return "↓"
