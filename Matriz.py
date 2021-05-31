@@ -6,6 +6,8 @@ class Matriz:
 
     def __init__(self,n,m):
         self.matrix =  np.empty((n, m), dtype=object)
+    def getTerreno(self,n,m):
+        return self.matrix[n][m]
 
     def generarArea(self):
         #Implementar aleatorio para crear terrenos
@@ -24,6 +26,4 @@ class Matriz:
 
         self.matrix[nObjetivo][mObjetivo].asignarTerrenoObjetivo()
 
-X = Matriz(1,2)
-X.generarArea()
 
