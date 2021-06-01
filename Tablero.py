@@ -1,6 +1,6 @@
 from Matriz import Matriz
 from Spirit import Spirit
-
+import numpy as np
 #pip install --user XlsxWriter
 import xlsxwriter
   
@@ -111,7 +111,7 @@ def find_next(spirit,coordinates, maze, visitados, visited):
     global tiempo
     next_coordinates = []
     lista=maze.getTerreno(coordinates[0], coordinates[1]).getDetalleObstaculo().split(";")
-    print(lista)
+    #print(lista)
     visited.append((spirit.orientacion,(coordinates[0],coordinates[1])))
     if(maze.getTerreno(coordinates[0],coordinates[1]).getDetalleTerreno()=="Terreno Llano"):
         tiempo += 2
@@ -121,7 +121,7 @@ def find_next(spirit,coordinates, maze, visitados, visited):
         if coordinates[1] + 1 < n and not ("Derecho" in lista):
             lista2 = maze.getTerreno(coordinates[0], coordinates[1]+1).getDetalleObstaculo().split(";")
             if(not "Izquierdo" in lista2 and not (("este",(coordinates[0], coordinates[1]+1)) in visited)):
-                print(lista2)
+
                 next_coordinates.append((coordinates[0], coordinates[1] + 1))
                 return spirit, next_coordinates
         if coordinates[0] + 1 < m and not ("Inferior" in lista):
@@ -289,48 +289,58 @@ def dfs(maze, stack, spirit, visitados, visited):
         #if(contadorOrigen==10):
          #   raise TypeError
 
-        print("\n")
+        #print("\n")
         n = stack.pop()
         if(n[0]==0 and n[0]==0):
             contadorOrigen += 1
         visitados.append(n)
-        print(start.orientacion)
-        print(f"Buscando en {n}")
-        print(f"Es {n} mi objetivo?")
-        print(n)
+        #print(start.orientacion)
+        #print(f"Buscando en {n}")
+        #print(f"Es {n} mi objetivo?")
+        #print(n)
         if maze.getTerreno(n[0],n[1]).objetivo:
-            print("Listo!")
+            #print("Listo!")
             return
-        print(f"No.")
+        #print(f"No.")
         start,next_steps = find_next(start,n, maze, visitados, visited)
 
-        print(f"Siguiente: {next_steps}")
+        #print(f"Siguiente: {next_steps}")
         stack.append(next_steps[0])
 
 
 def main():
-    spirit=Spirit("este",0,0)
-    global m
-    global n
-    m=6
-    n=8
-    laberinto=Matriz(m,n)
-    laberinto.generarAreaDefinidaTXT()
-    camino=[]
-    stack = []
-    visitado=[]
-    Tablero_game = Tablero(spirit,laberinto)
-    Tablero_game.exportarTableroExcel()
-    print("\n")
-    
-    try:
-        dfs(laberinto, stack, spirit, camino, visitado)
-        print(f"Al Spirit le tomó un total de {tiempo}s encontrar el objetivo")
-    except TypeError:
-        print(f"Al Spirit le tomó un total de {tiempo}s darse cuenta que no hay solución")
+    tiempos=[]
+    global tiempo
+    a=0
+    while a<1:
+        tiempo=0
+        global m
+        global n
+        m=7
+        n=7
+        spirit = Spirit("este", 0, 0)
+        laberinto=Matriz(m,n)
+        laberinto.generarArea()
+        camino=[]
+        stack = []
+        visitado=[]
+        Tablero_game = Tablero(spirit,laberinto)
+        Tablero_game.exportarTableroExcel()
+
+
+        try:
+            dfs(laberinto, stack, spirit, camino, visitado)
+
+            #print(f"Al Spirit le tomó un total de {tiempo}s encontrar el objetivo")
+            a=a+1
+            tiempos.append(tiempo)
+        except TypeError:
+            #print(f"Al Spirit le tomó un total de {tiempo}s darse cuenta que no hay solución")
+            pass
 
 
 
     print(camino)
+    print(np.average(tiempos))
 if __name__ == "__main__":
     main()

@@ -23,6 +23,9 @@ class Matriz:
         
         nObjetivo = random.randrange(np.shape(self.matrix)[0])
         mObjetivo = random.randrange(np.shape(self.matrix)[1])
+        while(nObjetivo==0 and mObjetivo==0):
+            nObjetivo = random.randrange(np.shape(self.matrix)[0])
+            mObjetivo = random.randrange(np.shape(self.matrix)[1])
 
         self.matrix[nObjetivo][mObjetivo].asignarTerrenoObjetivo()
     
